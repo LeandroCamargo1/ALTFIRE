@@ -1,0 +1,7 @@
+{
+  "name": "@fps/shared",
+  "version": "1.0.0",
+  "description": "Tipos e constantes compartilhados entre client e server",
+  "main": "types.ts",
+  "license": "MIT"
+}

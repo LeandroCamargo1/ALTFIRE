@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FPS Multiplayer</title>
+  <style>
+    /* Reset completo - o canvas ocupa 100% da viewport */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    /* Container do jogo */
+    #game-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    /* Canvas WebGL */
+    #game-container canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    /* HUD overlay (futuro) */
+    #hud {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+    /* Tela de conexão */
+    #connection-status {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #0f0;
+      font-size: 18px;
+      font-family: monospace;
+      z-index: 20;
+      text-align: center;
+    }
+    /* Mira central */
+    #crosshair {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      z-index: 15;
+      pointer-events: none;
+    }
+    #crosshair::before,
+    #crosshair::after {
+      content: '';
+      position: absolute;
+      background: #0f0;
+    }
+    #crosshair::before {
+      width: 2px;
+      height: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    #crosshair::after {
+      width: 100%;
+      height: 2px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <div id="hud"></div>
+    <div id="crosshair" style="display: none;"></div>
+    <div id="connection-status">Conectando ao servidor...</div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
